@@ -39,34 +39,35 @@ export default function Search() {
     }
 
     return (
-            <Card className="search-main">
-                <CardContent className="card-content">
-                    <h1>Search for a username</h1>
-                    <TextField
-                        id="standard-name"
-                        label="Username"
-                        onChange={e => {setUsername(e.target.value); setShowName(false); setUserExists('Checking name status')}}
-                        margin="normal"
-                        // value={}
-                        />
-                    <Button 
-                        variant="contained" 
-                        color="default"
-                        onClick={() => {
-                            setShowName(true);
-                            getTwitchInfo()
-                        }}>
-                        Search
-                    </Button>
-                    <div>
-                        {!showName
-                        ?
-                        null 
-                        :
-                        renderSwitch(userExists)
-                        }
-                    </div>
-                </CardContent>
-            </Card>
+            <>
+                <Card className="search-main">
+                    <CardContent className="card-content">
+                        <h1>Search for a username</h1>
+                        <TextField
+                            id="standard-name"
+                            label="Username"
+                            onChange={e => {setUsername(e.target.value); setShowName(false); setUserExists('Checking name status')}}
+                            margin="normal"
+                            // value={}
+                            />
+                        <Button 
+                            variant="contained" 
+                            color="default"
+                            onClick={() => {
+                                setShowName(true);
+                                getTwitchInfo()
+                            }}>
+                            Search
+                        </Button>
+                    </CardContent>
+                </Card>
+                
+                {!showName
+                ?
+                null 
+                :
+                <Card className="search-result"><CardContent>{renderSwitch(userExists)}</CardContent></Card>
+                }    
+            </>
     )
 }

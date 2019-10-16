@@ -1,5 +1,5 @@
 body{
-    height: 70vh;
+    height: 90vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -19,4 +19,11 @@ body{
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
+}
+
+.search-result{
+    height: 10%;
+    background: purple;
+    color: white;
+
 }
