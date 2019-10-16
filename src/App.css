@@ -1,3 +1,6 @@
+body {
+  background: #c879ed;
+}
 .App {
   display: flex;
   flex-direction: column;
@@ -10,4 +13,5 @@
 .title{
   font-size: 2rem;
   /* text-align: center; */
+  color: white;
 }

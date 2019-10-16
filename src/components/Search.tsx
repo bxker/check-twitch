@@ -30,9 +30,9 @@ export default function Search() {
     function renderSwitch(param: string){
         switch(param){
             case 'true':
-                return <h1>{username} already exists! Please search another username</h1>
+                return <h1>{username} already exists! Please search another username.</h1>
             case 'false':
-                return <h1>{username} is available! Register it <a href="https://twitch.tv/login">here</a>!</h1>
+                return <h1>{username} is available! Register it <a href="https://twitch.tv/login" target="__blank">here</a>!</h1>
             default:
                 return 'Checking name status'
         }
@@ -51,7 +51,7 @@ export default function Search() {
                         />
                     <Button 
                         variant="contained" 
-                        color="secondary"
+                        color="default"
                         onClick={() => {
                             setShowName(true);
                             getTwitchInfo()
