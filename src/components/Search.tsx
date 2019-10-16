@@ -12,7 +12,7 @@ export default function Search() {
     console.log(showName)
 
     function getTwitchInfo(){
-        axios.get(`/.netlify/functions/token-hider?username=${username}`)
+        axios.get(`https://check-twitch-username.netlify.com:8888/.netlify/functions/token-hider?username=${username}`)
         .then(res => {
             console.log(res.data.data[0])
             if(res.data.data[0]){
