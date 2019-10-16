@@ -10,10 +10,11 @@ exports.handler = async function(event, context) {
   // TODO: customize your URL and API keys set in the Netlify Dashboard
   // this is secret too, your frontend won't see this
   const { API_URL, client_id} = process.env
+  const {username} = event.queryStringParameters
   console.log(API_URL)
 
   try {
-    const { data } = await axios.get(`${API_URL}bananaksksssoosks`, {
+    const { data } = await axios.get(`${API_URL}${username}`, {
       headers: {
         "Client-ID": client_id
       }
