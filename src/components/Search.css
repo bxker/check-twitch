@@ -1,0 +1,7 @@
+.search-main{
+    display: flex;
+    width: 10vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
