@@ -28,7 +28,7 @@ export default function Search() {
             case 'true':
                 return <h1>{username} already exists! Please search another username</h1>
             case 'false':
-                return <h1>{username} is available! Register it at <a href="https://twitch.tv/login">here</a>!</h1>
+                return <h1>{username} is available! Register it <a href="https://twitch.tv/login">here</a>!</h1>
             default:
                 return 'Checking name status'
         }
