@@ -6,6 +6,7 @@
 .pnp.js
 .env
 /src/client.tsx
+/functions/token-hider/node_modules
 
 # testing
 /coverage
