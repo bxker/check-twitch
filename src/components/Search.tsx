@@ -41,7 +41,7 @@ export default function Search() {
     return (
             <Card className="search-main">
                 <CardContent className="card-content">
-                    <h1>Search for a Username</h1>
+                    <h1>Search for a username</h1>
                     <TextField
                         id="standard-name"
                         label="Username"
