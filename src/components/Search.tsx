@@ -8,13 +8,30 @@ import './Search.css'
 export default function Search() {
     const [username, setUsername] = React.useState('')
     const [showName, setShowName] = React.useState(false);
+    const [userExists, setUserExists] = React.useState('Checking name status');
     console.log(showName)
 
     function getTwitchInfo(){
         axios.get(`/.netlify/functions/token-hider?username=${username}`)
         .then(res => {
             console.log(res.data.data[0])
+            if(res.data.data[0]){
+                setUserExists('true')
+            }else if(!res.data.data[0]){
+                setUserExists('false')
+            }
         })
+    }
+
+    function renderSwitch(param: string){
+        switch(param){
+            case 'true':
+                return <h1>{username} already exists! Please search another username</h1>
+            case 'false':
+                return <h1>{username} is available! Register it at <a href="https://twitch.tv/">here!</a></h1>
+            default:
+                return 'Checking name status'
+        }
     }
 
     return (
@@ -22,19 +39,26 @@ export default function Search() {
             <TextField
                 id="standard-name"
                 label="Username"
-                onChange={e => setUsername(e.target.value)}
+                onChange={e => {setUsername(e.target.value); setShowName(false); setUserExists('Checking name status')}}
                 margin="normal"
+                // value={}
             />
             <Button 
                 variant="contained" 
                 color="secondary"
                 onClick={() => {
-                    setShowName(true)
+                    setShowName(true);
                     getTwitchInfo()
                 }}>
                 Search
             </Button>
-            {showName ? <h1>{username}</h1> : <h1>Please enter username to get started.</h1>}
+            {!showName
+            ?
+            null 
+            :
+            renderSwitch(userExists)
+            }
+            
         </div>
     )
 }
