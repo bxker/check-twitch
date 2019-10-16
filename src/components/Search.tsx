@@ -1,6 +1,10 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import { makeStyles } from '@material-ui/core/styles';
+// import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import axios from 'axios'
 import './Search.css'
 
@@ -35,30 +39,34 @@ export default function Search() {
     }
 
     return (
-        <div className="search-main">
-            <TextField
-                id="standard-name"
-                label="Username"
-                onChange={e => {setUsername(e.target.value); setShowName(false); setUserExists('Checking name status')}}
-                margin="normal"
-                // value={}
-            />
-            <Button 
-                variant="contained" 
-                color="secondary"
-                onClick={() => {
-                    setShowName(true);
-                    getTwitchInfo()
-                }}>
-                Search
-            </Button>
-            {!showName
-            ?
-            null 
-            :
-            renderSwitch(userExists)
-            }
-            
-        </div>
+            <Card className="search-main">
+                <CardContent className="card-content">
+
+                    <TextField
+                        id="standard-name"
+                        label="Username"
+                        onChange={e => {setUsername(e.target.value); setShowName(false); setUserExists('Checking name status')}}
+                        margin="normal"
+                        // value={}
+                        />
+                    <Button 
+                        variant="contained" 
+                        color="secondary"
+                        onClick={() => {
+                            setShowName(true);
+                            getTwitchInfo()
+                        }}>
+                        Search
+                    </Button>
+                    <div>
+                        {!showName
+                        ?
+                        null 
+                        :
+                        renderSwitch(userExists)
+                        }
+                    </div>
+                </CardContent>
+            </Card>
     )
 }

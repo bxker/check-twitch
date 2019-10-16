@@ -7,7 +7,7 @@ import Search from './components/Search';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <h1>Check Twitch</h1>
+      <h1 className="title">Check Twitch Username</h1>
       <Search/>
     </div>
   );
